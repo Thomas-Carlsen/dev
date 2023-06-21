@@ -8,12 +8,13 @@ import { help } from "./src/mainHelp.ts";
 if (import.meta.main) {
   const { args } = Deno;
   const parsedArgs = parse(args);
-  displayDevCli();
   if (args.length === 0 || parsedArgs.h || parsedArgs.help) {
+    displayDevCli();
     help();
   } else if (commands.includes(args[0])) {
     executeCommand(args[0]);
   } else {
+    displayDevCli();
     errorAndHelp(`Invalid argument ${args[0]}`);
   }
 }

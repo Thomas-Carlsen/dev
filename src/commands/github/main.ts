@@ -1,3 +1,7 @@
+import { help } from "./help.ts";
+
 export function runGithub() {
-  console.log("running da github subcommand, ma man!");
+  console.log();
+  // if no subcommand
+  help();
 }
