@@ -8,14 +8,14 @@ import { help } from "./src/mainHelp.ts";
 if (import.meta.main) {
   const { args } = Deno;
   const parsedArgs = parse(args);
-  if (args.length === 0 || parsedArgs.h || parsedArgs.help) {
+  if (args.length > 0 && commands.includes(args[0])) {
+    executeCommand(args[0], args.slice(1));
+  } else if (args.length === 0 || parsedArgs.h || parsedArgs.help) {
     displayDevCli();
     help();
-  } else if (commands.includes(args[0])) {
-    executeCommand(args[0]);
   } else {
     displayDevCli();
-    errorAndHelp(`Invalid argument ${args[0]}`);
+    errorAndHelp(`Invalid argument ${args[0]}`, help);
   }
 }
 
@@ -27,10 +27,10 @@ function displayDevCli(): void {
   console.log();
 }
 
-function executeCommand(command: Command) {
+function executeCommand(command: Command, args: string[]) {
   const mappedCommand = mapCommand(command);
   if ("yo" === mappedCommand) runYo();
-  if ("github" === mappedCommand) runGithub();
+  if ("github" === mappedCommand) runGithub(args);
 }
 
 function mapCommand(command: Command) {

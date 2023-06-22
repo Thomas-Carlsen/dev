@@ -1,7 +1,6 @@
 import { bold, red } from "./deps.ts";
-import { help } from "./mainHelp.ts";
 
-export const errorAndHelp = (error?: string): void => {
+export const errorAndHelp = (error: string, help: () => void): void => {
   if (!error) {
   } else if (error === "INVALID_KEY") {
     console.log(
