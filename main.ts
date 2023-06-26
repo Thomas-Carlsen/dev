@@ -1,5 +1,6 @@
 import { Command, commands } from "./commands.ts";
 import { runGithub } from "./src/commands/github/main.ts";
+import { runOs } from "./src/commands/os/main.ts";
 import { runYo } from "./src/commands/yo/main.ts";
 import { bold, green, italic, parse } from "./src/deps.ts";
 import { errorAndHelp } from "./src/error.ts";
@@ -31,6 +32,7 @@ function executeCommand(command: Command, args: string[]) {
   const mappedCommand = mapCommand(command);
   if ("yo" === mappedCommand) runYo();
   if ("github" === mappedCommand) runGithub(args);
+  if ("os" === mappedCommand) runOs(args);
 }
 
 function mapCommand(command: Command) {

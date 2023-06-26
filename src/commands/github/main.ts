@@ -1,11 +1,18 @@
+import { parse } from "../../deps.ts";
 import { errorAndHelp } from "../../error.ts";
+import { configType, store } from "../../utils/store.ts";
 import { GithubCommand, commands } from "./commands.ts";
 import { help } from "./help.ts";
 import { runRepos } from "./repos.ts";
 
 export function runGithub(args: string[]) {
   console.log();
-  if (args.length > 0 && commands.includes(args[0])) {
+  const parsedArgs = parse(args, {
+    string: ["pat"],
+  });
+  if (parsedArgs.pat) {
+    store(configType.GITHUB_PAT, parsedArgs.pat);
+  } else if (args.length > 0 && commands.includes(args[0])) {
     executeCommand(args[0], args.slice(1));
   } else if (args.length === 0) {
     help();
