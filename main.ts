@@ -1,5 +1,5 @@
-import { Command } from "./commands.ts";
-import { runCommands } from "./src/commands/commands/main.ts";
+import { type Command } from "./commands.ts";
+// import { runCommands } from "./src/commands/commands/main.ts";
 import { runGithub } from "./src/commands/github/main.ts";
 import "./src/importCommands.ts";
 import { runOs } from "./src/commands/os/main.ts";
@@ -52,7 +52,7 @@ function displayDevCli(): void {
 
 function executeCommand(command: Command, args: string[]) {
   const mappedCommand = mapCommand(command);
-  if ("commands" === mappedCommand) runCommands(args);
+  // if ("commands" === mappedCommand) runCommands(args);
   if ("yo" === mappedCommand) runYo();
   if ("github" === mappedCommand) runGithub(args);
   if ("os" === mappedCommand) runOs(args);
