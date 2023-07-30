@@ -1,11 +1,11 @@
 import { bold } from "../deps.ts";
 
-interface IHelp {
+interface Help {
   usage: string;
   commands: [string, string][];
   commandsPadEnd: number;
-  options: [string, string][];
-  optionsPadEnd: number;
+  options?: [string, string][];
+  optionsPadEnd?: number;
 }
 
 export function _help({
@@ -14,14 +14,16 @@ export function _help({
   commandsPadEnd,
   options,
   optionsPadEnd,
-}: IHelp) {
+}: Help) {
   console.log(usage);
 
   console.log(`\nCommands:`);
   printCommands(commands, commandsPadEnd);
 
-  console.log(`\nOptions:`);
-  printOptions(options, optionsPadEnd);
+  if (options) {
+    console.log(`\nOptions:`);
+    printOptions(options, optionsPadEnd);
+  }
 }
 
 function printCommands(commands: [string, string][], commandsPadEnd: number) {
@@ -32,7 +34,7 @@ function printCommands(commands: [string, string][], commandsPadEnd: number) {
   }
 }
 
-function printOptions(options: [string, string][], optionsPadEnd: number) {
+function printOptions(options: [string, string][], optionsPadEnd = 30) {
   for (const [optionName, optionDescription] of options) {
     console.log(
       `  ${bold(optionName)}`.padEnd(optionsPadEnd) + optionDescription

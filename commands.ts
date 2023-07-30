@@ -1,3 +1,3 @@
-export const commands = ["github", "gh", "yo", "os"] as const;
+export const commands = ["github", "gh", "yo", "os", "commands"] as const;
 
 export type Command = (typeof commands)[number];
