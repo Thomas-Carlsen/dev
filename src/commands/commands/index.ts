@@ -18,6 +18,7 @@ const commandsCommand: C = {
   name: "commands",
   description: "Collection of utils to create and update cli commands",
   runCommand: run,
+  filePath: import.meta.url,
 };
 
 // create/make or register commmand - creating is actually above

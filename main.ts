@@ -37,6 +37,7 @@ function newAttempt() {
     runCommand: () => {
       showHelp({ commandName: "main" });
     },
+    filePath: import.meta.url,
   });
   mainCommand.runCommand(args);
   // runCommand({ commandName: "main", args });

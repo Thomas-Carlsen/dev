@@ -4,6 +4,7 @@ createCommand({
   name: "prompt",
   description: "Experimenting wirh prompt",
   runCommand: run,
+  filePath: import.meta.url,
 });
 
 // This is just an experiment - make some util at some point for other modules to use to ask questions

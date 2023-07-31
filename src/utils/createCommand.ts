@@ -1,6 +1,5 @@
 import { Command } from "../models/Command.ts";
 import { bold, green, italic, parse } from "../deps.ts";
-import { runCommand } from "./runCommand.ts";
 
 const allCommands: Command[] = [];
 export function createCommand(command: Command): Command {
@@ -42,13 +41,6 @@ type ShowHelpOptions = {
 
 export function showHelp({ commandName }: ShowHelpOptions) {
   if (commandName === "main") displayDevCli();
-  // if (commandName === "main") {
-  //   console.log(`${bold("Usage:")}`);
-  //   console.log(`  dev [COMMAND]`);
-  //   console.log(`\n${bold("Commands:")}`);
-  //   printCommands(findChildCommands("main"));
-  //   return;
-  // }
   const command = findCommand(commandName)!;
   const commandPath =
     commandName === "main" ? "" : findCommandPath(command, command?.name) + " ";

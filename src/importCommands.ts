@@ -1,5 +1,6 @@
 import { path } from "./deps.ts";
 
+// could maybe have used walk instead of recursive - import { walk } from "https://deno.land/std/fs/mod.ts";
 async function loadAllFiles(folderName: string) {
   const commandsDirectoryFileUrl = path.join(
     path.dirname(import.meta.url),
