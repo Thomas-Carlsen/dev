@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --watch main.ts"
+    "dev": "deno run --watch main.ts",
+    "validate": "deno fmt ./src --check; deno test; deno lint"
   },
   "imports": {
     "deps.ts": "./src/deps.ts",

@@ -1,7 +1,7 @@
-export function runOs(args: string[]) {
+export function runOs(_args: string[]) {
   console.log();
-  // systemMemoryInfo();
-  // memoryUsage();
+  // _systemMemoryInfo();
+  // _memoryUsage();
   random();
 }
 
@@ -27,7 +27,7 @@ function random() {
   // console.log(Deno.networkInterfaces());
 }
 
-function memoryUsage() {
+function _memoryUsage() {
   const l = Deno.memoryUsage();
   // console.log(l);
   const memoryUsage = {
@@ -41,7 +41,7 @@ function memoryUsage() {
   console.log(memoryUsage);
 }
 
-function systemMemoryInfo() {
+function _systemMemoryInfo() {
   const l = Deno.systemMemoryInfo();
   const systemMemoryInfo = {
     "Total installed memory in bytes": l.total,

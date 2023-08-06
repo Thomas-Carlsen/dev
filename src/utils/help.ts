@@ -29,7 +29,7 @@ export function _help({
 function printCommands(commands: [string, string][], commandsPadEnd: number) {
   for (const [commandName, commandDescription] of commands) {
     console.log(
-      `  ${bold(commandName)}`.padEnd(commandsPadEnd) + commandDescription
+      `  ${bold(commandName)}`.padEnd(commandsPadEnd) + commandDescription,
     );
   }
 }
@@ -37,7 +37,7 @@ function printCommands(commands: [string, string][], commandsPadEnd: number) {
 function printOptions(options: [string, string][], optionsPadEnd = 30) {
   for (const [optionName, optionDescription] of options) {
     console.log(
-      `  ${bold(optionName)}`.padEnd(optionsPadEnd) + optionDescription
+      `  ${bold(optionName)}`.padEnd(optionsPadEnd) + optionDescription,
     );
   }
 }

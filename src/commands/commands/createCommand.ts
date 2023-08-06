@@ -14,7 +14,7 @@ function run() {
   const name = prompt(green("? What is the command name:"));
   if (!name) return;
   const haveParentCommand = confirm(
-    green("? Do this commmand have a parent command: ")
+    green("? Do this commmand have a parent command: "),
   );
 
   if (!haveParentCommand) {
@@ -30,7 +30,7 @@ function run() {
     const parentCommand = findCommand(parentCommandName);
     if (!parentCommand) {
       console.log(
-        `Invalid Parent Command: No command created called ${parentCommandName}`
+        `Invalid Parent Command: No command created called ${parentCommandName}`,
       );
       return;
     }

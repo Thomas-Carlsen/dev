@@ -15,7 +15,7 @@ export function store(type: configType, value: string): void {
     let doWriteValue = true;
     if (config["github-pat"]) {
       doWriteValue = confirm(
-        "Github PAT already stored - are you sure you want to overwrite?"
+        "Github PAT already stored - are you sure you want to overwrite?",
       );
     }
     if (doWriteValue) {

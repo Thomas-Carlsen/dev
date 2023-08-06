@@ -42,8 +42,9 @@ type ShowHelpOptions = {
 export function showHelp({ commandName }: ShowHelpOptions) {
   if (commandName === "main") displayDevCli();
   const command = findCommand(commandName)!;
-  const commandPath =
-    commandName === "main" ? "" : findCommandPath(command, command?.name) + " ";
+  const commandPath = commandName === "main"
+    ? ""
+    : findCommandPath(command, command?.name) + " ";
   const childCommands = findChildCommands(commandName);
 
   if (childCommands.length === 0) {
@@ -79,7 +80,7 @@ function findCommandPath(command: Command, pathSoFar: string): string {
   if (parentCommand === "main") return pathSoFar;
   return findCommandPath(
     findCommand(parentCommand)!,
-    parentCommand + " " + command.name
+    parentCommand + " " + command.name,
   );
 }
 

@@ -4,7 +4,7 @@ import { path } from "./deps.ts";
 async function loadAllFiles(folderName: string) {
   const commandsDirectoryFileUrl = path.join(
     path.dirname(import.meta.url),
-    folderName
+    folderName,
   );
   const commandsDirectoryPath = path.fromFileUrl(commandsDirectoryFileUrl);
   const fileItr = Deno.readDirSync(commandsDirectoryPath);
@@ -12,7 +12,7 @@ async function loadAllFiles(folderName: string) {
   const modulePromises = [...fileItr].map(async (fileInfo) => {
     if (fileInfo.isFile) {
       const modulePath = path.resolve(
-        `${commandsDirectoryPath}/${fileInfo.name}`
+        `${commandsDirectoryPath}/${fileInfo.name}`,
       );
       const moduleFileUrl = path.toFileUrl(modulePath).href;
       await import(moduleFileUrl);

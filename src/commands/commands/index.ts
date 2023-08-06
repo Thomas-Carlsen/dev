@@ -1,10 +1,8 @@
-import { parse } from "../../deps.ts";
 import { Command as C } from "../../models/Command.ts";
-import { createCommand, showHelp } from "../../utils/createCommand.ts";
+import { createCommand } from "../../utils/createCommand.ts";
 import { _help } from "../../utils/help.ts";
-import { runCommand } from "../../utils/runCommand.ts";
 
-export function runCommands(args: string[]) {
+export function runCommands(_args: string[]) {
   console.log();
   console.log("commands");
   _help({
