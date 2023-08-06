@@ -62,9 +62,7 @@ import { createCommand } from "/src/utils/createCommand.ts";
 createCommand({
   name: "${name}",
   description: "generate description for ${name}",
-  runCommand: run, ${
-    parentCommand ? `${"\n\t"}parentCommand: "${parentCommand}",` : ""
-  }
+  runCommand: run, ${parentCommand ? `${"\n\t"}parentCommand: "${parentCommand}",` : ""}
   filePath: import.meta.url,
 });
 

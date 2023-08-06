@@ -7,5 +7,9 @@
     "deps.ts": "./src/deps.ts",
     "/": "./",
     "./": "./"
+  },
+  "fmt": {
+    "lineWidth": 140,
+    "include": ["src/"]
   }
 }

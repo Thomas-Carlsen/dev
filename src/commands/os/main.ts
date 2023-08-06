@@ -14,8 +14,7 @@ function random() {
   console.log(Deno.gid());
   console.log({
     "The current process ID of this instance of the Deno CLI": Deno.pid,
-    "The process ID of parent process of this instance of the Deno CLI":
-      Deno.ppid,
+    "The process ID of parent process of this instance of the Deno CLI": Deno.ppid,
   });
   console.log(Deno.version);
   console.log(Deno.resources());
@@ -31,12 +30,10 @@ function _memoryUsage() {
   const l = Deno.memoryUsage();
   // console.log(l);
   const memoryUsage = {
-    "The number of bytes of the current Deno's process resident set size":
-      l.rss,
+    "The number of bytes of the current Deno's process resident set size": l.rss,
     "The total size of the heap for V8, in bytes": l.heapTotal,
     "The amount of the heap used for V8, in bytes": l.heapUsed,
-    "Memory, in bytes, associated with JavaScript objects outside of the JavaScript isolate":
-      l.external,
+    "Memory, in bytes, associated with JavaScript objects outside of the JavaScript isolate": l.external,
   };
   console.log(memoryUsage);
 }
