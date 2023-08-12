@@ -1,4 +1,4 @@
-import { parse } from "deps.ts";
+import { parse } from "../deps.ts";
 import { createCommand } from "../../src/utils/createCommand.ts";
 
 createCommand({
