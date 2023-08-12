@@ -1,4 +1,5 @@
 import "./commands/version.ts";
+import "./commands/commands/index.ts";
 
 // below only works when using deno to run the script and not when install the script as a single executable
 

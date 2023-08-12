@@ -9,6 +9,7 @@ createCommand({
 });
 
 function run() {
+  // should get this from the cli argument handler instead
   const parsedArgs = parse(Deno.args, {
     string: ["version"],
   });

@@ -7,7 +7,6 @@ if (import.meta.main) {
 
 function runMain() {
   const { args } = Deno;
-  console.log(args)
   const mainCommand = createCommand({
     name: "main",
     description:
