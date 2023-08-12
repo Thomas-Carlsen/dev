@@ -1,5 +1,5 @@
-import { parse, path } from "deps.ts";
-import { createCommand } from "/src/utils/createCommand.ts";
+import { parse } from "deps.ts";
+import { createCommand } from "../../src/utils/createCommand.ts";
 
 createCommand({
   name: "version",

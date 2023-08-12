@@ -4,9 +4,7 @@
     "validate": "deno fmt ./src --check; deno test; deno lint"
   },
   "imports": {
-    "deps.ts": "./src/deps.ts",
-    "/": "./",
-    "./": "./"
+    "deps.ts": "./src/deps.ts"
   },
   "fmt": {
     "lineWidth": 140,
