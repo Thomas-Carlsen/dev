@@ -1,6 +1,7 @@
 import { Command as C } from "../../models/Command.ts";
 import { createCommand } from "../../utils/createCommand.ts";
 import { _help } from "../../utils/help.ts";
+import "./createCommand.ts";
 
 export function runCommands(_args: string[]) {
   console.log();
