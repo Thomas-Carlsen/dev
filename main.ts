@@ -17,5 +17,7 @@ function runMain() {
     },
     filePath: import.meta.url,
   });
-  mainCommand.runCommand(args);
+  // pick installed args from the parsedArgs
+  // name and version
+  mainCommand.runCommand(args.slice(2, args.length));
 }
