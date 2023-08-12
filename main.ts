@@ -2,11 +2,12 @@ import "./src/importCommands.ts";
 import { createCommand, showHelp } from "./src/utils/createCommand.ts";
 
 if (import.meta.main) {
-  newAttempt();
+  runMain();
 }
 
-function newAttempt() {
+function runMain() {
   const { args } = Deno;
+  console.log(args)
   const mainCommand = createCommand({
     name: "main",
     description:
