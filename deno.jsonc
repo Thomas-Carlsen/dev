@@ -3,7 +3,9 @@
     "dev": "deno run --watch main.ts",
     "validate": "deno fmt ./src --check; deno test; deno lint"
   },
-  "imports": {},
+  "imports": {
+    "/deps.ts": "./src/deps.ts"
+  },
   "fmt": {
     "lineWidth": 140,
     "include": ["src/"]
