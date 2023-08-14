@@ -1,0 +1,49 @@
+
+
+version
+config:cf "thisLoction"
+  github:gh
+
+
+top
+  version
+  config:cf
+    github:gh
+
+
+topCommand [
+  version,
+  config [
+    github,
+  ]
+]
+
+topCommand "./src/commands/top.ts" 
+version "./src/commands/version.ts"
+config "./src/commands/config.ts"
+github "./src/commands/version.ts"
+
+
+topCommand "./src/commands/top.ts" [
+  version "./src/commands/version.ts",
+  config "./src/commands/config.ts" [
+    github "./src/commands/version.ts"
+  ]
+]
+
+topCommand {
+  location: "./src/commands/topts"
+  subcommands: [
+    version: {
+      location: "./src/commands/topts"
+    },
+    config: {
+      location: "./src/commands/topts"
+      subcommands:  [
+        github: {
+        location: "./src/commands/topts"
+        }
+      ]
+     }
+  ]
+}

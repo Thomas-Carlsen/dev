@@ -1,6 +1,6 @@
 export type Command = {
   name: string;
-  runCommand: (args: string[]) => void;
+  runCommand: (args: string[]) => Promise<void>;
   description: string;
   filePath: string;
   parentCommand?: string;

@@ -10,7 +10,7 @@ createCommand({
   filePath: import.meta.url,
 });
 
-function run() {
+async function run() {
   const name = prompt(green("? What is the command name:"));
   if (!name) return;
   const haveParentCommand = confirm(

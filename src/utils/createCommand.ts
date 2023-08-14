@@ -5,12 +5,12 @@ const allCommands: Command[] = [];
 export function createCommand(command: Command): Command {
   command.parentCommand ??= command.name === "main" ? undefined : "main";
   const originalRunCommand = command.runCommand;
-  command.runCommand = (args: string[]) => {
+  command.runCommand = async (args: string[]) => {
     const parsedArgs = parse(args);
     if (args.length > 0) {
       const subCommand = findCommand(args[0]);
       if (subCommand) {
-        subCommand.runCommand(args.slice(1));
+        await subCommand.runCommand(args.slice(1));
         Deno.exit();
       }
 
@@ -22,7 +22,7 @@ export function createCommand(command: Command): Command {
         showHelp({ commandName: command.name });
       }
     } else {
-      originalRunCommand(args);
+      await originalRunCommand(args);
     }
   };
   allCommands.push(command);
@@ -88,7 +88,7 @@ function findChildCommands(commandName: string) {
 
 function printCommands(commands: Command[], commandsPadEnd = 30) {
   for (const { name, description } of commands) {
-    console.log(`  ${bold(name)}`.padEnd(commandsPadEnd) + description);
+    console.log(`  ${name}`.padEnd(commandsPadEnd) + description);
   }
 }
 

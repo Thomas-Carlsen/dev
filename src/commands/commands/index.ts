@@ -23,7 +23,7 @@ const commandsCommand: C = {
 // Function Attempt
 createCommand(commandsCommand);
 
-function run() {
+async function run() {
   console.log("yoo");
 }
 

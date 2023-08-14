@@ -1,5 +1,8 @@
 import "./commands/version.ts";
+import "./commands/releases.ts";
 import "./commands/commands/index.ts";
+import "./commands/github.ts";
+import "./commands/config/config.ts";
 
 // below only works when using deno to run the script and not when install the script as a single executable
 

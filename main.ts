@@ -11,7 +11,7 @@ function runMain() {
     name: "main",
     description:
       "The dev-cli is made to make life easier - please enjoy life more! ;p",
-    runCommand: () => {
+    runCommand: async () => {
       showHelp({ commandName: "main" });
     },
     filePath: import.meta.url,
