@@ -1,6 +1,6 @@
 import { Config } from "../../services/config/Config.ts";
 import { createCommand } from "../../utils/createCommand.ts";
-import "./ghpat.ts";
+import "./github.ts";
 
 createCommand({
   name: "config",

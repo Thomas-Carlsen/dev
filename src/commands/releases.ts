@@ -10,7 +10,7 @@ createCommand({
 });
 
 async function run() {
-  if (Object.keys(Config.Github.pat).length === 0) {
+  if (Object.keys(Config.Github.pat()).length === 0) {
     console.log(`No PAT for Github has been stored.`);
     Deno.exit();
   }

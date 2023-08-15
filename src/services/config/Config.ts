@@ -6,19 +6,37 @@ export const Config = {
     console.log(configFile);
   },
   Github: {
-    print: getGithubConfig(),
-    pat: getGithubPat(),
+    print() {
+      const githubConfig = getGithubConfig();
+      console.log(githubConfig);
+    },
+    pat: getGithubPat,
+    storePat: storePat,
   },
 };
 
-function getGithubPat(): object {
+function getGithubPat(): string | undefined {
   const githubConfig = getGithubConfig();
-  if ("pat" in githubConfig && githubConfig["pat"] instanceof Object) return githubConfig["pat"];
+  if ("pat" in githubConfig) return githubConfig["pat"] as string | undefined;
+  return undefined;
+}
+
+function getGithubConfig() {
+  const configFile = Store.getConfig();
+  if (configFile["github"]) return configFile["github"];
   return {};
 }
 
-function getGithubConfig(): object {
+function storePat(pat: string) {
   const configFile = Store.getConfig();
-  if (configFile["github"]) return JSON.parse(configFile["github"]);
-  return {};
+  const configGithubPat = configFile.github?.pat;
+  if (configGithubPat) {
+    const overwritePat = confirm(
+      "Github PAT already stored - are you sure you want to overwrite?",
+    );
+    if (!overwritePat) return;
+  }
+  if (!configFile["github"]) configFile["github"] = {};
+  configFile["github"]["pat"] = pat;
+  Store.writeConfig(configFile);
 }

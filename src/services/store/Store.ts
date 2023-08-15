@@ -5,13 +5,16 @@ const devcliDirPath = `${tempDir}\\.devcli`;
 const configFilePath = `${devcliDirPath}\\config.json`;
 
 export const Store = {
-  getConfig() {
+  getConfig(): Config {
     if (!checkIfConfigExist()) {
       console.log(`Not been implemented for this os '${Deno.build.os}'`);
       Deno.exit();
     }
     const configFile = JSON.parse(Deno.readTextFileSync(configFilePath));
     return configFile;
+  },
+  writeConfig(config: Config) {
+    Deno.writeTextFileSync(configFilePath, JSON.stringify(config));
   },
 };
 
@@ -38,4 +41,10 @@ const OS = {
   aix: "aix",
   solaris: "solaris",
   illumos: "illumos",
+};
+
+export type Config = {
+  github: {
+    pat: string;
+  };
 };

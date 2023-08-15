@@ -7,7 +7,9 @@ export function createCommand(command: Command): Command {
   const originalRunCommand = command.runCommand;
   command.runCommand = async (args: string[]) => {
     const parsedArgs = parse(args);
-    if (args.length > 0) {
+    if (args.length > 0 && args[0].includes("-")) {
+      await originalRunCommand(args);
+    } else if (args.length > 0) {
       const subCommand = findCommand(args[0]);
       if (subCommand) {
         await subCommand.runCommand(args.slice(1));
