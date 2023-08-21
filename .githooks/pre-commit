@@ -1,9 +1,12 @@
 #!/bin/sh
 
 StagedTsFiles=$(deno run --allow-env --allow-read --allow-run ./src/githooks/outputStagedTsFiles.ts)
+echo $StagedTsFiles
+
 
 if deno lint $StagedTsFiles; then
-    exit 0
+    echo yo
+    # exit 0
 else
     echo Fix linting
     exit 1
