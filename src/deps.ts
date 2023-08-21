@@ -3,3 +3,4 @@ export { bold, cyan, green, italic, magenta, red, yellow } from "https://deno.la
 export { existsSync } from "https://deno.land/std@0.192.0/fs/exists.ts";
 export { assertEquals } from "https://deno.land/std@0.192.0/testing/asserts.ts";
 export * as path from "https://deno.land/std@0.192.0/path/mod.ts";
+export { writeAllSync } from "https://deno.land/std@0.198.0/streams/mod.ts";
