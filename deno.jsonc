@@ -2,7 +2,7 @@
   "tasks": {
     "dev": "deno run --watch main.ts",
     "validate": "deno fmt ./src --check; deno test; deno lint",
-    "enable-git-hooks": "git config --local include.path .gitconfig"
+    "enable-git-hooks": "git config core.hooksPath .githooks"
   },
   "imports": {},
   "fmt": {
