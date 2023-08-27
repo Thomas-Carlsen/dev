@@ -1,6 +1,6 @@
 import { Octokit } from "https://esm.sh/octokit@3.1.0?dts";
-import { createCommand } from "../utils/createCommand.ts";
 import { Config } from "../services/config/Config.ts";
+import { createCommand } from "../utils/createCommand.ts";
 
 createCommand({
   name: "releases",
@@ -22,6 +22,10 @@ async function run() {
   // console.log(res);
   // console.log("Hello, %s", login);
 
+  // const pi = new ProgressIndicator(ProgressIndicatorType.PERCENT);
+  // while (1) {
+  //   await pi.update(totalVal, currentVal);
+  // }
   const hello = await octokit.request("GET /repos/Thomas-Carlsen/dev/releases", {
     owner: "OWNER",
     repo: "REPO",
